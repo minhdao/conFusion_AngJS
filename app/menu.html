@@ -26,9 +26,9 @@
 <body>
 
     <div class="container">
-        <div class="row row-content">
+        <div class="row row-content" ng-controller="menuController as menuCtrl">
             <div class="col-xs-12">
-                <div class="media" ng-repeat="dish in dishes">
+                <div class="media" ng-repeat="dish in menuCtrl.dishes">
                     <div class="media-left media-middle">
                         <a href="#">
                         <img class="media-object img-thumbnail"
