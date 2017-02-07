@@ -29,26 +29,26 @@
         <div class="row row-content" ng-controller="menuController as menuCtrl">
             <div class="col-xs-12">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation">
+                    <li role="presentation" ng-class="{active:menuCtrl.isSelected(1)}">
                     <a
                      aria-controls="all menu"
-                     role="tab">The Menu</a></li>
-                    <li role="presentation">
+                     role="tab" ng-click="menuCtrl.select(1)">The Menu</a></li>
+                    <li role="presentation" ng-class="{active:menuCtrl.isSelected(2)}">
                     <a
                      aria-controls="appetizers"
-                     role="tab">Appetizers</a></li>
-                    <li role="presentation">
+                     role="tab" ng-click="menuCtrl.select(2)">Appetizers</a></li>
+                    <li role="presentation" ng-class="{active:menuCtrl.isSelected(3)}">
                     <a
                      aria-controls="mains"
-                     role="tab">Mains</a></li>
-                    <li role="presentation">
+                     role="tab" ng-click="menuCtrl.select(3)">Mains</a></li>
+                    <li role="presentation" ng-class="{active:menuCtrl.isSelected(4)}">
                     <a
                      aria-controls="desserts"
-                     role="tab">Desserts</a></li>
+                     role="tab" ng-click="menuCtrl.select(4)">Desserts</a></li>
                 </ul>
                 <div class="tab-content">
                     <ul class="media-list">
-                        <li class="media" ng-repeat="dish in menuCtrl.dishes">
+                        <li class="media-list tab-pane fade in active" ng-repeat="dish in menuCtrl.dishes | filter:menuCtrl.filter">
                             <div class="media-left media-middle">
                                 <a href="#">
                                 <img class="media-object img-thumbnail"
@@ -80,6 +80,26 @@
 
     // create a controller for the module
     app.controller('menuController', function() {
+        this.filter = '';
+        this.tab = 1;
+        this.select = function(setTab) {
+                // set tab value accordingly
+                this.tab = setTab;
+                // set filter according to selected tab
+                if (this.tab === 2) {
+                    this.filter = "appetizer";
+                }else if(this.tab === 3){
+                    this.filter = "mains";
+                }else if (this.tab === 4) {
+                    this.filter = "dessert";
+                }else {
+                    this.filter = "";
+                }
+        }
+        this.isSelected = function (checkTab) {
+                return (this.tab === checkTab);
+        }
+
         var dishes=[
                         {
                            name:'Uthapizza',
