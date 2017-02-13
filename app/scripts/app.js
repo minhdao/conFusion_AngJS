@@ -75,7 +75,8 @@ angular.module('confusionApp', [])
     };
 }])
 .controller('ContactController', ['$scope', function ($scope) {
-
+    // feedback is accessable through FeedbackController too because of nested property of Angular
+    $scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:""};
 }])
 .controller('FeedbackController', ['$scope', function ($scope) {
 
