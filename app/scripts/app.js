@@ -73,4 +73,11 @@ angular.module('confusionApp', [])
     $scope.toggleDetails = function(){
         $scope.showDetails = !$scope.showDetails;
     };
-}]);
+}])
+.controller('ContactController', ['$scope', function ($scope) {
+
+}])
+.controller('FeedbackController', ['$scope', function ($scope) {
+
+}])
+;
