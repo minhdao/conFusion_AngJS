@@ -107,6 +107,11 @@
                                 </div>
                                 <span ng-show="feedbackForm.firstname.$error.required && !feedbackForm.firstname.$pristine" class="help-block">Please rate.</span>
                             </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-primary" ng-disabled="feedbackForm.$invalid">Submit Comment</button>
+                                </div>
+                            </div>
                             <!-- <p>Task 2: You need to validate that the user name and comments are entered</p> -->
                         </form>
                     </div>
