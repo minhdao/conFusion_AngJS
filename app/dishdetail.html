@@ -46,15 +46,23 @@
                         </div>
                     </div>
                     <div class="col-xs-9 col-xs-offset-1">
-                        <blockquote ng-repeat="comment in dish.comments | orderBy:filter">
-                          <p>
-                            {{comment.rating}} Stars
-                          </p>
-                          <p>
-                            {{comment.comment}}
-                          </p>
-                          <footer>{{comment.author}}, {{comment.date | date:MMMdyyyy}}</footer>
-                        </blockquote>
+                        <div class="row">
+                            <h4>Customer Comments</h4>
+                            <p class="pull-left">Sort by:
+                              <input ng-model="filter" type="text">
+                            </p>
+                        </div>
+                        <div class="row">
+                            <blockquote ng-repeat="comment in dish.comments | orderBy:filter">
+                              <p>
+                                {{comment.rating}} Stars
+                              </p>
+                              <p>
+                                {{comment.comment}}
+                              </p>
+                              <footer>{{comment.author}}, {{comment.date | date:MMMdyyyy}}</footer>
+                            </blockquote>
+                        </div>                    
                     </div>
                     <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
                         <ul class="list-unstyled">
