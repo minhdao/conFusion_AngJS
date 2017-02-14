@@ -147,6 +147,7 @@ angular.module('confusionApp', [])
 }])
 .controller('DishCommentController', ["$scope", function($scope){
     //Step 1: Create a JavaScript object to hold the comment from the form
+    $scope.customerComment = {customerName:"", rating: 5, comment:"", date:""};
     $scope.submitComment = function(){
         //Step 2: This is how you record the date
             //"The date property of your JavaScript object holding the comment" = new Date().toISOString();
