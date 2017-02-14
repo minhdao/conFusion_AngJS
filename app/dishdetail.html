@@ -49,18 +49,18 @@
                         <div class="row">
                             <h4>Customer Comments</h4>
                             <p class="pull-left">Sort by:
-                              <input ng-model="filter" type="text">
+                                <input ng-model="filter" type="text">
                             </p>
                         </div>
                         <div class="row">
                             <blockquote ng-repeat="comment in dish.comments | orderBy:filter">
-                              <p>
-                                {{comment.rating}} Stars
-                              </p>
-                              <p>
-                                {{comment.comment}}
-                              </p>
-                              <footer>{{comment.author}}, {{comment.date | date:MMMdyyyy}}</footer>
+                                <p>
+                                    {{comment.rating}} Stars
+                                </p>
+                                <p>
+                                    {{comment.comment}}
+                                </p>
+                                <footer>{{comment.author}}, {{comment.date | date:MMMdyyyy}}</footer>
                             </blockquote>
                         </div>
                     </div>
@@ -68,46 +68,57 @@
                         <ul class="list-unstyled">
                             <!-- <p>Task 3: Here you include the code to show the live preview of the comment</p>
                             <p>The comment should be shown only when the form contains valid
-                                information and is not pristine</p> -->
-                            </ul>
-                            <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate="">
-                                <div class="form-group" ng-class="">
-                                    <label for="customerName" class="col-sm-2 control-label">Your Name</label>
-                                    <div class="col-sm-10">
-                                        <input
-                                        class="form-control"
-                                        id="customerName"
-                                        name="customerName"
-                                        placeholder="Enter Your Name"
-                                        type="text"
-                                        ng-model="customerComment.customerName"
-                                        >
-                                        <span ng-show="feedbackForm.firstname.$error.required && !feedbackForm.firstname.$pristine" class="help-block">Your name is required.</span>
-                                    </div>
+                            information and is not pristine</p> -->
+                        </ul>
+                        <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate="">
+                            <div class="form-group" ng-class="">
+                                <label for="customerName" class="col-sm-2 control-label">Your Name</label>
+                                <div class="col-sm-10">
+                                    <input
+                                    class="form-control"
+                                    id="customerName"
+                                    name="customerName"
+                                    placeholder="Enter Your Name"
+                                    type="text"
+                                    ng-model="customerComment.customerName"
+                                    >
+                                    <span ng-show="feedbackForm.firstname.$error.required && !feedbackForm.firstname.$pristine" class="help-block">Your name is required.</span>
                                 </div>
-                                <div class="form-group" ng-class="">
-                                    <label for="rating" class="col-sm-2 control-label">Number of Stars</label>
-                                    <div class="col-sm-10" id="rating">
-                                        <label class="radio-inline"><input type="radio" name="rating" value="1">1</label>
-                                        <label class="radio-inline"><input type="radio" name="rating" value="2">2</label>
-                                        <label class="radio-inline"><input type="radio" name="rating" value="3">3</label>
-                                        <label class="radio-inline"><input type="radio" name="rating" value="4">4</label>
-                                        <label class="radio-inline"><input type="radio" name="rating" value="5">5</label>
-                                        <span ng-show="feedbackForm.firstname.$error.required && !feedbackForm.firstname.$pristine" class="help-block">Please rate.</span>
-                                    </div>
+                            </div>
+                            <div class="form-group" ng-class="">
+                                <label for="rating" class="col-sm-2 control-label">Number of Stars</label>
+                                <div class="col-sm-10" id="rating">
+                                    <label class="radio-inline"><input type="radio" name="rating" value="1">1</label>
+                                    <label class="radio-inline"><input type="radio" name="rating" value="2">2</label>
+                                    <label class="radio-inline"><input type="radio" name="rating" value="3">3</label>
+                                    <label class="radio-inline"><input type="radio" name="rating" value="4">4</label>
+                                    <label class="radio-inline"><input type="radio" name="rating" value="5">5</label>
+                                    <span ng-show="feedbackForm.firstname.$error.required && !feedbackForm.firstname.$pristine" class="help-block">Please rate.</span>
                                 </div>
-                                <!-- <p>Task 2: You need to validate that the user name and comments are entered</p> -->
-                            </form>
-                        </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="comment" class="col-sm-2 control-label">Your Comments</label>
+                                <div class="col-sm-10">
+                                    <textarea
+                                    class="form-control" id="comment"
+                                    name="comment" rows="12"
+                                    ng-model=""
+                                    ></textarea>
+                                </div>
+                                <span ng-show="feedbackForm.firstname.$error.required && !feedbackForm.firstname.$pristine" class="help-block">Please rate.</span>
+                            </div>
+                            <!-- <p>Task 2: You need to validate that the user name and comments are entered</p> -->
+                        </form>
                     </div>
                 </div>
+            </div>
 
-                <!-- build:js scripts/main.js -->
-                <script src="../bower_components/angular/angular.js"></script>
-                <script src="scripts/app.js"></script>
-                <!-- endbuild -->
+            <!-- build:js scripts/main.js -->
+            <script src="../bower_components/angular/angular.js"></script>
+            <script src="scripts/app.js"></script>
+            <!-- endbuild -->
 
 
 
 
-            </body></html>
+        </body></html>
