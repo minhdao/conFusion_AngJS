@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
-                        <div class="row">
+                        <div class="row" ng-show="commentForm.$valid && !commentForm.$pristine">
                             <ul class="list-unstyled">
                                 <!-- <p>Task 3: Here you include the code to show the live preview of the comment</p>
                                 <p>The comment should be shown only when the form contains valid
