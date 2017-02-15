@@ -85,7 +85,7 @@
 
                             <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate="">
                                 <!-- name field -->
-                                <div class="form-group" ng-class="">
+                                <div class="form-group" ng-class="{ 'has-error has-feedback' : !commentForm.customerName.$pristine }">
                                     <label for="customerName" class="col-sm-2 control-label">Your Name</label>
                                     <div class="col-sm-10">
                                         <input
@@ -96,12 +96,12 @@
                                         type="text"
                                         ng-model="customerComment.customerName"
                                         >
-                                        <span ng-show="feedbackForm.firstname.$error.required && !feedbackForm.firstname.$pristine" class="help-block">Your name is required.</span>
+                                        <span ng-show="!commentForm.customerName.$pristine" class="help-block">Your name is required.</span>
                                     </div>
                                 </div>
 
                                 <!-- rating field -->
-                                <div class="form-group" ng-class="">
+                                <div class="form-group">
                                     <label for="rating" class="col-sm-2 control-label">Number of Stars</label>
                                     <div class="col-sm-10" id="rating">
                                         <label class="radio-inline"><input type="radio" name="rating" value="1" ng-model="customerComment.rating">1</label>
@@ -109,12 +109,11 @@
                                         <label class="radio-inline"><input type="radio" name="rating" value="3" ng-model="customerComment.rating">3</label>
                                         <label class="radio-inline"><input type="radio" name="rating" value="4" ng-model="customerComment.rating">4</label>
                                         <label class="radio-inline"><input type="radio" name="rating" value="5" ng-model="customerComment.rating" checked>5</label>
-                                        <span ng-show="feedbackForm.firstname.$error.required && !feedbackForm.firstname.$pristine" class="help-block">Please rate.</span>
                                     </div>
                                 </div>
 
                                 <!-- comment text area field -->
-                                <div class="form-group">
+                                <div class="form-group" ng-class="{ 'has-error has-feedback' : commentForm.comment.$error.required && !commentForm.comment.$pristine }">
                                     <label for="comment" class="col-sm-2 control-label">Your Comments</label>
                                     <div class="col-sm-10">
                                         <textarea
@@ -123,13 +122,13 @@
                                         ng-model="customerComment.comment"
                                         ></textarea>
                                     </div>
-                                    <span ng-show="feedbackForm.firstname.$error.required && !feedbackForm.firstname.$pristine" class="help-block">Please rate.</span>
+                                    <span ng-show="commentForm.comment.$error.required && !commentForm.comment.$pristine" class="help-block">Please rate.</span>
                                 </div>
 
                                 <!-- button -->
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-primary" ng-disabled="feedbackForm.$invalid">Submit Comment</button>
+                                        <button type="submit" class="btn btn-primary" ng-disabled="commentForm.$invalid">Submit Comment</button>
                                     </div>
                                 </div>
                                 <!-- <p>Task 2: You need to validate that the user name and comments are entered</p> -->
