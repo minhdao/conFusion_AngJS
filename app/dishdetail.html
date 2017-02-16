@@ -77,7 +77,7 @@
                                     <p>
                                         {{customerComment.comment}}
                                     </p>
-                                    <footer>{{customerComment.customerName}}</footer>
+                                    <footer>{{customerComment.author}}</footer>
                                 </blockquote>
                             </ul>
                         </div>
@@ -85,19 +85,19 @@
 
                             <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate="">
                                 <!-- name field -->
-                                <div class="form-group" ng-class="{ 'has-error has-feedback' : commentForm.customerName.$error.required && !commentForm.customerName.$pristine }">
-                                    <label for="customerName" class="col-sm-2 control-label">Your Name</label>
+                                <div class="form-group" ng-class="{ 'has-error has-feedback' : commentForm.author.$error.required && !commentForm.author.$pristine }">
+                                    <label for="author" class="col-sm-2 control-label">Your Name</label>
                                     <div class="col-sm-10">
                                         <input
                                         class="form-control"
-                                        id="customerName"
-                                        name="customerName"
+                                        id="author"
+                                        name="author"
                                         placeholder="Enter Your Name"
                                         type="text"
-                                        ng-model="customerComment.customerName"
+                                        ng-model="customerComment.author"
                                         ng-required="true"
                                         >
-                                        <span ng-show="commentForm.customerName.$error.required && !commentForm.customerName.$pristine" class="help-block">Your name is required.</span>
+                                        <span ng-show="commentForm.author.$error.required && !commentForm.author.$pristine" class="help-block">Your name is required.</span>
                                     </div>
                                 </div>
 
