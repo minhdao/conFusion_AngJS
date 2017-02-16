@@ -151,18 +151,9 @@ angular.module('confusionApp', [])
     $scope.submitComment = function(){
         //Step 2: This is how you record the date
         $scope.customerComment.date = new Date().toISOString();
-        console.log("name: " + $scope.customerComment.author);
-        console.log("rating: " + $scope.customerComment.rating);
-        console.log("comment: " + $scope.customerComment.comment);
-        console.log("date: " + $scope.customerComment.date);
 
         // Step 3: Push your comment into the dish's comment array
         $scope.dish.comments.push($scope.customerComment);
-        console.log("***** after pushing *****");
-        console.log("name: " + $scope.customerComment.author);
-        console.log("rating: " + $scope.customerComment.rating);
-        console.log("comment: " + $scope.customerComment.comment);
-        console.log("date: " + $scope.customerComment.date);
 
         //Step 4: reset your form to pristine
         $scope.commentForm.$setPristine();
