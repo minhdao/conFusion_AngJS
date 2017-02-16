@@ -85,7 +85,7 @@
 
                             <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate="">
                                 <!-- name field -->
-                                <div class="form-group" ng-class="{ 'has-error has-feedback' : !commentForm.customerName.$pristine }">
+                                <div class="form-group" ng-class="{ 'has-error has-feedback' : commentForm.customerName.$error.required && !commentForm.customerName.$pristine }">
                                     <label for="customerName" class="col-sm-2 control-label">Your Name</label>
                                     <div class="col-sm-10">
                                         <input
@@ -95,8 +95,9 @@
                                         placeholder="Enter Your Name"
                                         type="text"
                                         ng-model="customerComment.customerName"
+                                        ng-required="true"
                                         >
-                                        <span ng-show="!commentForm.customerName.$pristine" class="help-block">Your name is required.</span>
+                                        <span ng-show="commentForm.customerName.$error.required && !commentForm.customerName.$pristine" class="help-block">Your name is required.</span>
                                     </div>
                                 </div>
 
@@ -120,9 +121,10 @@
                                         class="form-control" id="comment"
                                         name="comment" rows="12"
                                         ng-model="customerComment.comment"
+                                        ng-required="true"
                                         ></textarea>
+                                        <span ng-show="commentForm.comment.$error.required && !commentForm.comment.$pristine" class="help-block">Please give your feedback.</span>
                                     </div>
-                                    <span ng-show="commentForm.comment.$error.required && !commentForm.comment.$pristine" class="help-block">Please rate.</span>
                                 </div>
 
                                 <!-- button -->
