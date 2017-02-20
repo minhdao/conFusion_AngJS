@@ -4,6 +4,7 @@ angular.module('confusionApp')
 .service('menuFactory', function () {
     var dishes=[
         {
+            _id: 0,
             name:'Uthapizza',
             image: 'images/uthapizza.png',
             category: 'mains',
@@ -44,6 +45,8 @@ angular.module('confusionApp')
             ]
         },
         {
+
+            _id: 1,
             name:'Zucchipakoda',
             image: 'images/zucchipakoda.png',
             category: 'appetizer',
@@ -84,6 +87,7 @@ angular.module('confusionApp')
             ]
         },
         {
+            _id: 2,
             name:'Vadonut',
             image: 'images/vadonut.png',
             category: 'appetizer',
@@ -124,6 +128,7 @@ angular.module('confusionApp')
             ]
         },
         {
+            _id: 3,
             name:'ElaiCheese Cake',
             image: 'images/elaicheesecake.png',
             category: 'dessert',
