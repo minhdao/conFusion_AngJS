@@ -42,7 +42,7 @@ angular.module('confusionApp')
 .controller('FeedbackController', ['$scope', function ($scope) {
     $scope.sendFeedback = function(){
         console.log($scope.feedback);
-        if ($scope.feedback.agree && ($scope.feedback.mychannel == "")&& !$scope.feedback.mychannel){
+        if ($scope.feedback.agree && ($scope.feedback.mychannel === "")&& !$scope.feedback.mychannel){
             $scope.invalidChannelSelection = true;
             console.log('incorrect');
         }else{
@@ -54,7 +54,7 @@ angular.module('confusionApp')
             $scope.feedbackForm.$setPristine();
             console.log($scope.feedback);
         }
-    }
+    };
 }])
 .controller('DishDetailController', ['$scope', 'menuFactory', function($scope, menuFactory) {
 
@@ -76,6 +76,6 @@ angular.module('confusionApp')
 
         //Step 5: reset your JavaScript object that holds your comment
         $scope.customerComment = {rating:"5", comment:"", author:"", date:""};
-    }
+    };
 }])
 ;
