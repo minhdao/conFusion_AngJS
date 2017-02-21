@@ -202,7 +202,7 @@ angular.module('confusionApp')
 
                 this.getPromotion = function (index) {
                     return promotions[index];
-                }
+                };
 
 
         })
@@ -248,10 +248,10 @@ angular.module('confusionApp')
             // Remember this is a factory not a service
             corpfac.getLeaders = function () {
                 return leadership;
-            }
+            };
             corpfac.getLeader = function (index) {
                 return leadership[index];
-            }
+            };
             return corpfac;
 
         })
