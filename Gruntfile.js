@@ -168,7 +168,7 @@ module.exports = function (grunt) {
                 options: {
                     open: true,
                     base:{
-                        path: 'dist',
+                        path: 'app',
                         options: {
                             index: 'index.html',
                             maxAge: 300000
