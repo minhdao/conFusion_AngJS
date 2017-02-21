@@ -99,8 +99,7 @@ angular.module('confusionApp')
     $scope.promotedDish = menuFactory.getPromotion(0);
     $scope.executiveChef = corporateFactory.getLeader(3);
 }])
-.controller('AboutController',['$scope', 'corporateFactory'], function ($scope, corporateFactory) {
-    $scope.leaders = corporateFactory.getLeaders();
-})
-
+.controller('AboutController', ['$scope','corporateFactory', function ($scope, corporateFactory) {
+    $scope.leaders=corporateFactory.getLeaders();
+}])
 ;
