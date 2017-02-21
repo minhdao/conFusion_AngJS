@@ -180,17 +180,19 @@ module.exports = function (grunt) {
     });
 
     // register task
-    grunt.registerTask('build', [
-        'clean',
-        'jshint',
-        'useminPrepare',
-        'concat',
-        'cssmin',
-        'uglify',
-        'copy',
-        'filerev',
-        'usemin'
-    ]);
+    // grunt.registerTask('build', [
+    //     'clean',
+    //     'jshint',
+    //     'useminPrepare',
+    //     'concat',
+    //     'cssmin',
+    //     'uglify',
+    //     'copy',
+    //     'filerev',
+    //     'usemin'
+    // ]);
+
+    grunt.registerTask('build', ['jshint']);
 
     grunt.registerTask('default', [
         'build'
