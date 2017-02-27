@@ -8,8 +8,13 @@ angular.module('confusionApp')
     $scope.filtText = '';
     $scope.showDetails = false;
 
-    $scope.dishes= menuFactory.getDishes();
-
+    $scope.dishes = [];
+    menuFactory.getDishes()
+    .then(
+        function (response) {
+            $scope.dishes = response.data;
+        }
+    );
 
     $scope.select = function(setTab) {
         $scope.tab = setTab;
@@ -78,10 +83,7 @@ angular.module('confusionApp')
             $scope.dish = response.data;
             $scope.showDish = true;
         }
-    )
-
-    $scope.dish = dish;
-
+    );
 }])
 
 .controller('DishCommentController', ['$scope', function($scope) {
@@ -110,7 +112,7 @@ angular.module('confusionApp')
             $scope.featuredDish = response.data;
             $scope.showDish = true;
         }
-    )
+    );
     $scope.promotedDish = menuFactory.getPromotion(0);
     $scope.executiveChef = corporateFactory.getLeader(3);
 }])

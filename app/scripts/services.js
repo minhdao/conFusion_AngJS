@@ -21,11 +21,11 @@ angular.module('confusionApp')
     // use http service to get all dishes data from server
     this.getDishes = function () {
         return $http.get(baseURL + "dishes");
-    }
+    };
     // user http service to get dish data from server
     this.getDish = function (index) {
-        return $http.get(baseURL + "dishes/" + index)
-    }
+        return $http.get(baseURL + "dishes/" + index);
+    };
 
     // implement a function named getPromotion
     // that returns a selected promotion.
