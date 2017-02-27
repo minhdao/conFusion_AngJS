@@ -7,12 +7,17 @@ angular.module('confusionApp')
     $scope.tab = 1;
     $scope.filtText = '';
     $scope.showDetails = false;
-
+    $scope.message = "Loading...";
+    $scope.showMenu = false;
     $scope.dishes = [];
     menuFactory.getDishes()
     .then(
         function (response) {
             $scope.dishes = response.data;
+            $scope.showMenu = true;
+        },
+        function (response) {
+            $scope.message = "Error..." + response.status + " " + response.statusText;
         }
     );
 
