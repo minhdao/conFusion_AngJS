@@ -117,11 +117,17 @@ angular.module('confusionApp')
 // implement the IndexController and About Controller here
 .controller('IndexController', ['$scope','menuFactory','corporateFactory', function ($scope, menuFactory, corporateFactory) {
     $scope.featuredDish = {};
+    $scope.showDish = false;
+    $scope.message = "Loading...";
     menuFactory.getDish(0)
     .then(
         function (response) {
             $scope.featuredDish = response.data;
             $scope.showDish = true;
+        },
+        function (response) {
+            $scope.showDish = false;
+            $scope.message = "Error..." + response.status + " " + response.statusText;
         }
     );
     $scope.promotedDish = menuFactory.getPromotion(0);
