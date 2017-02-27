@@ -8,8 +8,16 @@ angular.module('confusionApp')
     $scope.filtText = '';
     $scope.showDetails = false;
     $scope.message = "Loading...";
-    $scope.showMenu = true;
-    $scope.dishes = menuFactory.getDishes().query();
+    $scope.showMenu = false;
+    $scope.dishes = menuFactory.getDishes().query(
+        function(response) {
+            $scope.dishes = response;
+            $scope.showMenu = true;
+        },
+        function(response) {
+            $scope.message = "Error: "+response.status + " " + response.statusText;
+        }
+    );
     $scope.select = function(setTab) {
         $scope.tab = setTab;
 
