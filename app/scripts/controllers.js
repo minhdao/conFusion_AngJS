@@ -81,12 +81,18 @@ angular.module('confusionApp')
 .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
 
     $scope.dish = {};
+    $scope.showDish = false;
+    $scope.message = "Loading...";
 
     menuFactory.getDish(parseInt($stateParams.id,10))
     .then(
         function(response){
             $scope.dish = response.data;
             $scope.showDish = true;
+        },
+        function (response) {
+            $scope.showDish = false;
+            $scope.message = "Error..." + response.status + " " + response.statusText;
         }
     );
 }])
