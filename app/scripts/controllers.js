@@ -112,12 +112,12 @@ angular.module('confusionApp')
     $scope.showDish = false;
     $scope.message = "Loading...";
     $scope.featuredDish = menuFactory.getDishes().get({id: 0}).$promise.then(
-        function(response){
-            $scope.dish = response;
+        function (response) {
+            $scope.featuredDish = response;
             $scope.showDish = true;
         },
-        function(response) {
-            $scope.message = "Error: "+response.status + " " + response.statusText;
+        function (response) {
+            $scope.message = "Error";
         }
     );
     $scope.promotedDish = menuFactory.getPromotion(0);
