@@ -119,7 +119,7 @@ angular.module('confusionApp')
             $scope.showDish = true;
         },
         function (response) {
-            $scope.message = "Error";
+            $scope.message = "Error: "+response.status + " " + response.statusText;
         }
     );
     $scope.promotedDish = menuFactory.getPromotion().get({id:0}).$promise.then(
@@ -128,7 +128,7 @@ angular.module('confusionApp')
             $scope.showDish = true;
         },
         function (response) {
-            $scope.message = "Error";
+            $scope.message = "Error: "+response.status + " " + response.statusText;
         }
     );
     $scope.executiveChef = corporateFactory.getLeaders().get({id:3});

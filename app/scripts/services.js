@@ -33,6 +33,6 @@ angular.module('confusionApp')
 .service('feedbackService', ['$resource', 'baseURL', function ($resource, baseURL) {
     this.getFeedback = function () {
         return $resource(baseURL + "feedback/:id", null, {'update':{method:'POST'}});
-    }
+    };
 }])
 ;
