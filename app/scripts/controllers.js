@@ -133,9 +133,17 @@ angular.module('confusionApp')
             $scope.message = "Error";
         }
     );
-    $scope.executiveChef = corporateFactory.getLeader(3);
+    $scope.executiveChef = corporateFactory.getLeaders().get({id:3});
 }])
 .controller('AboutController', ['$scope','corporateFactory', function ($scope, corporateFactory) {
-    $scope.leaders=corporateFactory.getLeaders();
+    $scope.leaders=corporateFactory.getLeaders().query(
+        function(response) {
+            $scope.dishes = response;
+            $scope.showMenu = true;
+        },
+        function(response) {
+            $scope.message = "Error: "+response.status + " " + response.statusText;
+        }
+    );
 }])
 ;
