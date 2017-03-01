@@ -44,7 +44,7 @@ angular.module('confusionApp')
     };
 }])
 
-.controller('ContactController', ['$scope', function($scope) {
+.controller('ContactController', ['$scope','feedbackService', function($scope, feedbackService) {
 
     $scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
 
@@ -53,13 +53,11 @@ angular.module('confusionApp')
     $scope.channels = channels;
     $scope.invalidChannelSelection = false;
 
-}])
-
-.controller('FeedbackController', ['$scope', 'feedbackService', function($scope, feedbackService) {
-
     $scope.sendFeedback = function() {
 
         console.log($scope.feedback);
+
+        feedbackService.getFeedback().update({id:$scope.feedback.id},$scope.feedback);
 
         if ($scope.feedback.agree && ($scope.feedback.mychannel === "")) {
             $scope.invalidChannelSelection = true;
