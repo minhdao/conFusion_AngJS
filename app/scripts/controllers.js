@@ -138,8 +138,7 @@ angular.module('confusionApp')
 .controller('AboutController', ['$scope','corporateFactory', function ($scope, corporateFactory) {
     $scope.leaders=corporateFactory.getLeaders().query(
         function(response) {
-            $scope.dishes = response;
-            $scope.showMenu = true;
+            $scope.leaders = response;
         },
         function(response) {
             $scope.message = "Error: "+response.status + " " + response.statusText;
