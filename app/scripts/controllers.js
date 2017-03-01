@@ -57,7 +57,7 @@ angular.module('confusionApp')
 
         console.log($scope.feedback);
 
-        feedbackService.getFeedback().update({id:$scope.feedback.id},$scope.feedback);
+        feedbackService.getFeedback().save($scope.feedback);
 
         if ($scope.feedback.agree && ($scope.feedback.mychannel === "")) {
             $scope.invalidChannelSelection = true;
