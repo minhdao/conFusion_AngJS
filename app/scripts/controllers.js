@@ -55,7 +55,7 @@ angular.module('confusionApp')
 
 }])
 
-.controller('FeedbackController', ['$scope', function($scope) {
+.controller('FeedbackController', ['$scope', 'feedbackService', function($scope, feedbackService) {
 
     $scope.sendFeedback = function() {
 
