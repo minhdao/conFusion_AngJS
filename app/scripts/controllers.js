@@ -124,7 +124,7 @@ angular.module('confusionApp')
             $scope.message = "Error";
         }
     );
-    $scope.promotedDish = menuFactory.getPromotion(0);
+    $scope.promotedDish = menuFactory.getPromotion().get({id:0});
     $scope.executiveChef = corporateFactory.getLeader(3);
 }])
 .controller('AboutController', ['$scope','corporateFactory', function ($scope, corporateFactory) {
